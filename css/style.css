@@ -6,3 +6,48 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Basic Reset ======================================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+/* HEADER ============================================================================== */
+.header {
+    height: 95vh;
+    background: linear-gradient(
+                to right bottom,
+                rgb(126, 213, 111, 0.8),
+                rgb(40, 180, 133, 0.8)
+            )
+            no-repeat,
+        #7ed56f url(../img/hero.jpg) no-repeat top;
+    background-size: cover;
+    /* In 6. Building the Header - Part 1 - learned advanced way to use
+    linear-gradient and to use 'to right bottom'*/
+
+    /* Extra Lessons:- */
+    /* *CSS Shorthand: background: color image repeat position */
+    /* *Only use the color property in shorthand in the last declaration
+    for example- background: image repeat position, color image repeat position; */
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* In 6. Building the Header - Part 1 - learned the way to use
+    clip-path: polygon(left-top-corner-position-with-respect-to-left-top-corner
+    -of-the-area right-top-corner-w.r.t-left-top-corner-of-the-area right-bottom
+    -corner-w.r.t.-left-top-corner-of-the-area left-bottom-corner-w.r.t.-left-top
+    -corner-of-the-area);
+    & use the website https://bennettfeely.com/clippy/ */
+}

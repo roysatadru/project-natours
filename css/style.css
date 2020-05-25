@@ -35,19 +35,43 @@ body {
             no-repeat,
         #7ed56f url(../img/hero.jpg) no-repeat top;
     background-size: cover;
-    /* In 6. Building the Header - Part 1 - learned advanced way to use
-    linear-gradient and to use 'to right bottom'*/
-
-    /* Extra Lessons:- */
-    /* *CSS Shorthand: background: color image repeat position */
-    /* *Only use the color property in shorthand in the last declaration
-    for example- background: image repeat position, color image repeat position; */
-
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* In 6. Building the Header - Part 1 - learned the way to use
-    clip-path: polygon(left-top-corner-position-with-respect-to-left-top-corner
-    -of-the-area right-top-corner-w.r.t-left-top-corner-of-the-area right-bottom
-    -corner-w.r.t.-left-top-corner-of-the-area left-bottom-corner-w.r.t.-left-top
-    -corner-of-the-area);
-    & use the website https://bennettfeely.com/clippy/ */
+
+    position: relative;
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }

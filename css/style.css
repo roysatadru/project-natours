@@ -122,6 +122,18 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 .btn:link,
 .btn:visited {
     text-transform: uppercase;
@@ -129,28 +141,61 @@ body {
     padding: 15px 40px;
     display: inline-block;
     border-radius: 100px;
-    transition: all .2s; /* we can specify a certain property or we can just say 'all' */
+    transition: all .2s;
+    position: relative;
 }
-
-/*  'transition: ...;' property has to be on the initial state / base state*/
 
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
-/*  box-shadow: offset(x-direction) offset(y-direction) blur spread color */
-
 .btn:active {
-    transform: translateY(-1px); /* this transform: translateY(...); property acts with 
-    respect to .btn:link {...}, which is the base state not with .btn:hover {...} */
+    transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
-/*  active - It is the state when the button is clicked */
-
-.btn-white:link,
-.btn-white:visited {
+.btn-white {  /* .btn-white:link not needed here */
     background-color: #fff;
     color: #777;
 }
+
+/*  👇'after' pseudo class acts like a child to the parent-element which in this case
+    is the btn */
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+/*  👆'position: absolute;' searches for the first element that has got the 
+    'position: relative;' property so that it can position itself according to that*/
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after { /* 👈this selector means when .btn is hovered over we want 
+                        the after pseudo element to style in a certain way */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/*  We can scale an element in X & Y direction seperately using scaleX(...) scaleY(...) */
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+/*  animatation: name duration timing-function delay; */
+/*  animation-fill-mode: backwards; helps set the 0% animation state 
+    before it starts to animate */

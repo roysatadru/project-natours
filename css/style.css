@@ -55,13 +55,15 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
 
-    backface-visibility: hidden;  /* a hack to disbale the background shaking */
+    backface-visibility: hidden; /* a hack to disbale the background shaking */
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -79,14 +81,6 @@ body {
        */
 }
 
-/*  In 8. Creating Cool CSS Animations-
-    *for animation to work only two properties are needed -
-    *animation-name: ...;
-    *animation-duration: ...;
-    *animation-delay: ...;
-    *animation-iteration-count: ...;
-    *animation-timing-function: ...;*/
-
 .heading-primary-sub {
     display: block;
     font-size: 20px;
@@ -96,16 +90,12 @@ body {
     animation: moveInRight 1s ease-out;
 }
 
-/*  In 8. Creating Cool CSS Animations-
-    *CSS Shorthand:-
-    *animation: [name] [duration] [timing-function];*/
-
 @keyframes moveInLeft {
     0% {
         opacity: 0;
         transform: translateX(-100px);
     }
-    
+
     80% {
         transform: translateX(10px);
     }
@@ -132,12 +122,35 @@ body {
     }
 }
 
-/*  In 8. Creating Cool CSS Animations-
-    *It is best to only use two properties in animations (@keyframes [animation-name]
-{...}. One of them is opacity & another is transform because these two are best
-understood by browsers for animations!! 
-    *Also learned how to use the 'transform: translate(...);' 
-    *X-direction (in CSS) is calculated from left to right direction (+ive direction)
-    *Y-direction (in CSS) is calculated from top to bottom direction (+ive direction)
-    *Also learned how to use the 'transform: rotate(...deg);'
-    *Multiple values for transform: translate(...) rotate(...) ...;*/
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s; /* we can specify a certain property or we can just say 'all' */
+}
+
+/*  'transition: ...;' property has to be on the initial state / base state*/
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+/*  box-shadow: offset(x-direction) offset(y-direction) blur spread color */
+
+.btn:active {
+    transform: translateY(-1px); /* this transform: translateY(...); property acts with 
+    respect to .btn:link {...}, which is the base state not with .btn:hover {...} */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+/*  active - It is the state when the button is clicked */
+
+.btn-white:link,
+.btn-white:visited {
+    background-color: #fff;
+    color: #777;
+}

@@ -8,6 +8,7 @@
             no-repeat,
         $color-primary-light url(../img/hero.jpg) no-repeat top;
     background-size: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     position: relative;
